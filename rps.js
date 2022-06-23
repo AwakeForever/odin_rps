@@ -4,7 +4,7 @@ var round = 5;
 //btn.addEventListener('click', game())
 
 
-for(i = 5; i != 0; --i){
+for(i = 1; i != 5; ++i){
 	alert(`round ${i}`);
 	var playerText = prompt();
 	playRound(playerText);

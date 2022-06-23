@@ -1,2 +1,2 @@
 # odin_rps
-rock paper scissors 
+rock paper scissors, but with a UI
