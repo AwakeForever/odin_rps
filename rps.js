@@ -1,15 +1,17 @@
-//const playerChoice = document.querySelector('#btn')
+const btn = document.querySelector('#btn')
 var display = document.querySelector('#display')
+var computerHandDisplay = document.querySelector('#computerhand');
+var playerHandDisplay = document.querySelector('#playerhand');
 var round = 5;
-//btn.addEventListener('click', game())
+btn.addEventListener('click', playRound)
 
 
-for(i = 1; i != 5; ++i){
+/*for(i = 1; i != 5; ++i){
 	alert(`round ${i}`);
 	var playerText = prompt();
 	playRound(playerText);
 	
-}
+}*/
 
 function game(round){
 	--round;
@@ -24,18 +26,33 @@ function game(round){
 
 }
 
+function test(){
+	console.log("yes");
+}
 
-function playRound(text) {
+function playRound() {
 	var computerHand = computerPlay()
-	//var playerHand = document.getElementById("playerchoice").value 
-	//console.log(`player's hand is ${playerHand}`)
-	console.log(`player's hand is ${text}`)
+	var playerHand = document.getElementById("playerchoice").value 
+	console.log(`player's hand is ${playerHand}`)
+	//console.log(`player's hand is ${text}`)
 	console.log(`computer hand is ${computerHand}`)
-	if (/*playerHand*/ text === computerHand) {
-		display.innerHTML = 'WIN'
-	} else {
-		display.innerHTML = "LOSE"
-	}
+	//const playerHandDisplay = document.createElement('div');
+	//const computerHandDisplay = document.createElement('div');
+	playerHandDisplay.textContent = `player hand was :${playerHand}`;
+	computerHandDisplay.textContent = `computer hand was :${computerHand}`;
+	
+
+	if(playerHand === 'paper' && computerHand === 'rock'
+		|| playerHand === 'rock' && computerHand === 'scissors'
+		|| playerHand === 'scissors' && computerHand === 'paper'){
+			display.textContent = 'WIN';	
+		}	else  if(playerHand === computerHand){
+			display.textContent = "DRAW";	
+		} 	else {
+			display.textContent = "LOSE";
+		}										
+															
+	
 
 }
 function computerPlay(){
