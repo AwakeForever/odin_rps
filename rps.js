@@ -2,8 +2,12 @@ const btn = document.querySelector('#btn')
 var display = document.querySelector('#display')
 var computerHandDisplay = document.querySelector('#computerhand');
 var playerHandDisplay = document.querySelector('#playerhand');
-var round = 5;
 btn.addEventListener('click', playRound)
+btn.round = 5;
+/*do{
+	game(round)
+	round--;
+} while (round != 0);*/
 
 
 /*for(i = 1; i != 5; ++i){
@@ -13,10 +17,9 @@ btn.addEventListener('click', playRound)
 	
 }*/
 
-function game(round){
-	--round;
-	console.log(`round is ${round}`)
-	if(round == 0){
+/*function game(x){
+	console.log(`round is ${x}`)
+	if(x == 0){
 		alert("game over!")
 		return;
 	} else {
@@ -24,13 +27,13 @@ function game(round){
 		return;
 	}
 
-}
+}*/
 
 function test(){
 	console.log("yes");
 }
 
-function playRound() {
+function playRound(evt) {
 	var computerHand = computerPlay()
 	var playerHand = document.getElementById("playerchoice").value 
 	console.log(`player's hand is ${playerHand}`)
@@ -50,9 +53,13 @@ function playRound() {
 			display.textContent = "DRAW";	
 		} 	else {
 			display.textContent = "LOSE";
-		}										
-															
-	
+		}
+
+	console.log(`round is ${evt.currentTarget.round}`)										
+	if(evt.currentTarget.round == 0){
+		alert("game over!")												
+	}
+	evt.currentTarget.round--;
 
 }
 function computerPlay(){
